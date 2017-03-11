@@ -1,5 +1,13 @@
 language: objective-c
 osx_image: xcode8.2
+
+notifications:
+  email:
+    recipients:
+      - nathan.lanza@icloud.com
+    on_success: change # default: change
+    on_failure: always # default: always
+
 env:
   global:
   - LC_CTYPE=en_US.UTF-8
