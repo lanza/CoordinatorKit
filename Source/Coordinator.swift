@@ -142,8 +142,6 @@ open class Coordinator {
    }
    var presentedCoordinator: Coordinator? {
       didSet {
-         print(oldValue)
-         print(presentedCoordinator)
       }
    }
    public weak var parent: Coordinator?
