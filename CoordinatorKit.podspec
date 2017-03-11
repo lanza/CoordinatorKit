@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
 
   s.description      = <<-DESC
-  TODO: Add long description of the pod here.
+  A framework that implements the coordinator pattern in a fashion similar to how UIKit works. The APIs are designed to be equivalent to that of UIViewControllers where the Coordinators control an individual UIViewController instead of a UIView.
                        DESC
 
 
