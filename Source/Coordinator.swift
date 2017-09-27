@@ -104,7 +104,7 @@ open class Coordinator {
    }
    public var disablesAutomaticKeyboardDismissal: Bool {
       get { return viewController.disablesAutomaticKeyboardDismissal }
-      set { viewController.disablesAutomaticKeyboardDismissal = newValue }
+      set { /*viewController.disablesAutomaticKeyboardDismissal = newValue*/ }
    }
    
    //MARK: - Supporting Custom Transitions and Presentations
