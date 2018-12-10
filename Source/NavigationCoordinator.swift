@@ -2,7 +2,7 @@ import UIKit
 
 open class NavigationCoordinator: Coordinator {
     
-    public var navigationController: UINavigationController! { return viewController as! UINavigationController }
+    public var navigationController: UINavigationController! { return viewController as? UINavigationController }
     
     public required override init() {
         super.init()

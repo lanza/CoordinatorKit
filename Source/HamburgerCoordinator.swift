@@ -58,19 +58,19 @@ public class HamburgerController: UIViewController {
     public func setViewControllers(_ viewControllers: [UIViewController]?, animated: Bool) {
         self.vcs = viewControllers
         
-        for vc in childViewControllers {
-            vc.willMove(toParentViewController: nil)
-            vc.removeFromParentViewController()
+        for vc in children {
+            vc.willMove(toParent: nil)
+            vc.removeFromParent()
         }
         
         selectedIndex = 0
         guard let vc = viewControllers?.first else { fatalError() }
-        addChildViewController(vc)
+        addChild(vc)
         vc.beginAppearanceTransition(true, animated: false)
         containerView.addSubview(vc.view)
         vc.view.frame = containerView.frame
         vc.endAppearanceTransition()
-        vc.didMove(toParentViewController: self)
+        vc.didMove(toParent: self)
         displayedViewController = vc
     }
     public var selectedViewController: UIViewController? {
@@ -91,8 +91,8 @@ public class HamburgerController: UIViewController {
         if dvc === svc { return }
         displayedViewController = svc
         
-        dvc.willMove(toParentViewController: nil)
-        addChildViewController(svc)
+        dvc.willMove(toParent: nil)
+        addChild(svc)
         
         transition(from: dvc, to: svc, duration: 0.0, options: [], animations: {
             dvc.view.removeFromSuperview()
@@ -105,8 +105,8 @@ public class HamburgerController: UIViewController {
             constraints.append(svc.view.topAnchor.constraint(equalTo: self.containerView.topAnchor))
             NSLayoutConstraint.activate(constraints)
         }, completion: { finished in
-            dvc.removeFromParentViewController()
-            svc.didMove(toParentViewController: self)
+            dvc.removeFromParent()
+            svc.didMove(toParent: self)
             self.closeDrawer()
         })
     }
@@ -205,7 +205,7 @@ public class HamburgerController: UIViewController {
     }
     
     
-    func gestureRecognized(_ gr: UILongPressGestureRecognizer) {
+    @objc func gestureRecognized(_ gr: UILongPressGestureRecognizer) {
         if gr.state == .recognized {
             grRec()
         }

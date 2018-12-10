@@ -9,16 +9,16 @@ fileprivate let swizzling: (UIWindow.Type) -> () = { window in
     let originalMethod = class_getInstanceMethod(window, originalSelector)
     let swizzledMethod = class_getInstanceMethod(window, swizzledSelector)
     
-    method_exchangeImplementations(originalMethod, swizzledMethod)
+    method_exchangeImplementations(originalMethod!, swizzledMethod!)
 }
 extension UIWindow {
     
-    func ck_makeKeyAndVisible() {
+    @objc func ck_makeKeyAndVisible() {
         guard rootCoordinator != nil else { fatalError("You must set a rootCoordinator before making the UIWindow key and visible") }
         ck_makeKeyAndVisible()
     }
     
-    open override class func initialize() {
+     open class func performSwizzling() {
         guard self === UIWindow.self else { return }
         swizzling(self)
     }
