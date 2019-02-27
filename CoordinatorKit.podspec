@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'CoordinatorKit'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = "A framework that implements the coordinator pattern in a fashion similar to how UIViewControllers work."
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
 
@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
 
   s.homepage         = "https://github.com/lanza/CoordinatorKit"
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '11.0'
   s.source           = { :git => "https://github.com/lanza/CoordinatorKit.git", :tag => s.version }
 
   s.framework        = "UIKit"
